@@ -1,7 +1,7 @@
 const server = require("../api/server");
 const supertest = require("supertest");
 
-// Write your tests here
+// Write your tests here.
 test("sanity", () => {
 	expect(true).toBe(true);
 });
