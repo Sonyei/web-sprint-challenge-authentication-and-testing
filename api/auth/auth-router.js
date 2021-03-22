@@ -4,25 +4,13 @@ const authModel = require("./auth-model");
 const { bodyExists, uniqueUser } = require("../middleware/restricted");
 const jwt = require("jsonwebtoken");
 
-router.get("/users", async (req, res, next) => {
+router.get("/jokes", async (req, res, next) => {
 	try {
-		const users = await authModel.find();
-		if (!users) {
-			res.status(404).json({ message: "No users found" });
+		const joke = await authModel.find();
+		if (!joke) {
+			res.status(404).json({ message: "No jokes found" });
 		}
-		res.status(200).json(users);
-	} catch (err) {
-		next(err);
-	}
-});
-
-router.get("/users/:id", async (req, res, next) => {
-	try {
-		const user = await authModel.findById(req.params.id);
-		if (!user) {
-			res.status(404).json({ message: "User not found" });
-		}
-		res.status(200).json(user);
+		res.status(200).json(joke);
 	} catch (err) {
 		next(err);
 	}
