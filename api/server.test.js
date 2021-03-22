@@ -9,14 +9,20 @@ test("sanity", () => {
 //api/auth/register
 
 describe("POST /register : Able to register new users", () => {
-	test("Register a new user", async () => {
+	test("Register a new user and respond with 201 status code", async () => {
 		const res = await supertest(server).post("/api/auth/register").send({
 			username: "angryPregnantLady",
 			password: "Please_pass_so_I_can_lay_down",
 		});
 		expect(res.statusCode).toBe(201);
 	});
-	test("", async () => {});
+	test("Registering a duplicate username responds with 409 status code. 2 pregnant ladies is too much.", async () => {
+		const res = await supertest(server).post("/api/auth/register").send({
+			username: "angryPregnantLady",
+			password: "So_dizzy",
+		});
+		expect(res.statusCode).toBe(409);
+	});
 });
 
 //api/auth/login
