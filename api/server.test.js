@@ -44,9 +44,9 @@ describe("POST /login: Able to login and authenticate user with token", () => {
 	});
 });
 
-//api/auth/users
+//api/jokes
 
 describe("GET /jokes: Able to hit protected endpoint", () => {
-	test("return list of users", async () => {});
-	test("return list of users", async () => {});
+	test("responds with joke data with valid token", async () => {});
+	test("denies data with invalid token", async () => {});
 });
