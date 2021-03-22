@@ -43,10 +43,3 @@ describe("POST /login: Able to login and authenticate user with token", () => {
 		expect(res.statusCode).toBe(404);
 	});
 });
-
-//api/jokes
-
-describe("GET /jokes: Able to hit protected endpoint", () => {
-	test("responds with joke data with valid token", async () => {});
-	test("denies data with invalid token", async () => {});
-});
